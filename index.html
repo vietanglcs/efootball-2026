@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eFootball 2026 Mobile — Tactical & Skill Blueprint (José Mourinho LBC)</title>
+<style>
+  :root {
+    --bg-main: #090d16;
+    --bg-card: #111827;
+    --bg-card-hover: #162033;
+    --bg-panel: #0f172a;
+    --border: #1e293b;
+    --border-bright: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --accent-cyan: #06b6d4;
+    --accent-blue: #3b82f6;
+    --accent-gold: #f59e0b;
+    --accent-green: #10b981;
+    --accent-red: #ef4444;
+    --accent-purple: #a855f7;
+    --pitch-green-1: #064e3b;
+    --pitch-green-2: #065f46;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.5;
+    padding-bottom: 64px;
+  }
+
+  .container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* HERO HEADER */
+  .hero {
+    background: radial-gradient(circle at top right, rgba(6, 182, 212, 0.16), transparent 45%),
+                radial-gradient(circle at top left, rgba(245, 158, 11, 0.14), transparent 45%),
+                linear-gradient(180deg, #0f172a 0%, #090d16 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 0 28px;
+    margin-bottom: 28px;
+  }
+
+  .hero-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(6, 182, 212, 0.12);
+    border: 1px solid rgba(6, 182, 212, 0.35);
+    color: var(--accent-cyan);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+
+  .hero h1 {
+    font-size: clamp(24px, 3.2vw, 34px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+  }
+
+  .hero-subtitle {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 4px;
+  }
+
+  .strength-box {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.16), rgba(16, 185, 129, 0.12));
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    border-radius: 14px;
+    padding: 14px 22px;
+    text-align: right;
+    min-width: 210px;
+  }
+
+  .strength-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-gold);
+    font-weight: 700;
+  }
+
+  .strength-value {
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+  }
+
+  .strength-sub {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  /* MANAGER KPI GRID */
+  .manager-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+  }
+
+  .kpi-card {
+    background: rgba(17, 24, 39, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+
+  .kpi-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .kpi-main {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .kpi-desc {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+  }
+
+  .pill-gold {
+    display: inline-block;
+    background: rgba(245, 158, 11, 0.16);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .pill-cyan {
+    display: inline-block;
+    background: rgba(6, 182, 212, 0.16);
+    color: #22d3ee;
+    border: 1px solid rgba(6, 182, 212, 0.35);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* SECTION HEADERS */
+  .section-title {
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+  }
+
+  .section-title span.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    display: inline-block;
+  }
+
+  /* TACTICAL BOARD & INSTRUCTIONS GRID */
+  .tactics-layout {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 20px;
+    margin-bottom: 34px;
+  }
+
+  @media (max-width: 980px) {
+    .tactics-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  .tab-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    background: var(--bg-main);
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  .tab-btn {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 9px 12px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+
+  .tab-btn.active {
+    background: linear-gradient(135deg, #0284c7, #06b6d4);
+    color: #ffffff;
+    box-shadow: 0 2px 10px rgba(6, 182, 212, 0.3);
+  }
+
+  /* PITCH VISUALIZER */
+  .pitch {
+    position: relative;
+    width: 100%;
+    height: 490px;
+    background: repeating-linear-gradient(
+      0deg,
+      #064e3b 0px,
+      #064e3b 49px,
+      #065f46 49px,
+      #065f46 98px
+    );
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .pitch-center-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1.5px;
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  .pitch-center-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 96px;
+    height: 96px;
+    transform: translate(-50%, -50%);
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    border-radius: 50%;
+  }
+
+  .pitch-box-top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 52%;
+    height: 74px;
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    border-top: none;
+  }
+
+  .pitch-box-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 52%;
+    height: 74px;
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+    border-bottom: none;
+  }
+
+  .player-node {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: rgba(9, 13, 22, 0.92);
+    border: 1.5px solid #38bdf8;
+    border-radius: 9px;
+    padding: 5px 9px;
+    text-align: center;
+    min-width: 92px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
+    transition: transform 0.15s ease;
+  }
+
+  .player-node:hover {
+    transform: translate(-50%, -50%) scale(1.06);
+    z-index: 10;
+  }
+
+  .player-node.sub-active {
+    border-color: #f59e0b;
+    box-shadow: 0 0 14px rgba(245, 158, 11, 0.45);
+  }
+
+  .player-node.linkup-active {
+    border-color: #a855f7;
+    box-shadow: 0 0 16px rgba(168, 85, 247, 0.65);
+  }
+
+  .node-pos {
+    font-size: 10px;
+    font-weight: 800;
+    color: #38bdf8;
+    letter-spacing: 0.04em;
+  }
+
+  .player-node.sub-active .node-pos {
+    color: #fbbf24;
+  }
+
+  .player-node.linkup-active .node-pos {
+    color: #d8b4fe;
+  }
+
+  .node-name {
+    font-size: 12px;
+    font-weight: 800;
+    color: #fff;
+    white-space: nowrap;
+  }
+
+  .node-style {
+    font-size: 9.5px;
+    color: #cbd5e1;
+  }
+
+  .pitch-note {
+    margin-top: 12px;
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+
+  /* INSTRUCTIONS TABLE */
+  .inst-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .inst-table th {
+    text-align: left;
+    padding: 10px 10px;
+    background: var(--bg-main);
+    color: var(--text-secondary);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .inst-table td {
+    padding: 11px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .inst-slot {
+    font-weight: 800;
+    color: var(--accent-cyan);
+    white-space: nowrap;
+  }
+
+  .inst-cmd {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+  }
+
+  .cmd-on {
+    background: rgba(16, 185, 129, 0.16);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+  }
+
+  .cmd-off {
+    background: rgba(239, 68, 68, 0.16);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.35);
+  }
+
+  .cmd-sub {
+    background: rgba(245, 158, 11, 0.16);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.35);
+  }
+
+  /* FILTER & SEARCH TOOLBAR */
+  .toolbar {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .filter-btn {
+    background: var(--bg-main);
+    border: 1px solid var(--border-bright);
+    color: var(--text-secondary);
+    padding: 7px 13px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .filter-btn:hover {
+    border-color: var(--accent-cyan);
+    color: #fff;
+  }
+
+  .filter-btn.active {
+    background: var(--accent-cyan);
+    border-color: var(--accent-cyan);
+    color: #090d16;
+    font-weight: 800;
+  }
+
+  .search-input {
+    background: var(--bg-main);
+    border: 1px solid var(--border-bright);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    min-width: 260px;
+    outline: none;
+  }
+
+  .search-input:focus {
+    border-color: var(--accent-cyan);
+  }
+
+  /* PLAYER CARDS GRID */
+  .players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
+    gap: 18px;
+    margin-bottom: 36px;
+  }
+
+  @media (max-width: 460px) {
+    .players-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .player-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: border-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .player-card:hover {
+    border-color: var(--border-bright);
+    background: var(--bg-card-hover);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+  }
+
+  .player-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ovr-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  .ovr-gk { background: rgba(245, 158, 11, 0.18); border: 1.5px solid #f59e0b; color: #fbbf24; }
+  .ovr-def { background: rgba(59, 130, 246, 0.18); border: 1.5px solid #3b82f6; color: #60a5fa; }
+  .ovr-mid { background: rgba(16, 185, 129, 0.18); border: 1.5px solid #10b981; color: #34d399; }
+  .ovr-att { background: rgba(239, 68, 68, 0.18); border: 1.5px solid #ef4444; color: #f87171; }
+
+  .ovr-num {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .ovr-pos {
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    margin-top: 2px;
+  }
+
+  .player-name {
+    font-size: 17px;
+    font-weight: 800;
+    color: #fff;
+  }
+
+  .player-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  .phase-tag {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .phase-full { background: rgba(6, 182, 212, 0.15); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.35); }
+  .phase-h1 { background: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.35); }
+  .phase-h2 { background: rgba(245, 158, 11, 0.16); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+
+  /* STATS STRIP */
+  .stats-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .stat-chip {
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    color: var(--text-secondary);
+  }
+
+  .stat-chip strong {
+    color: #fff;
+  }
+
+  /* BOOSTER BLOCK */
+  .block-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .booster-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .booster-item {
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 10px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .booster-name {
+    font-weight: 700;
+    color: #e2e8f0;
+  }
+
+  .booster-stats {
+    color: var(--text-secondary);
+    font-size: 11px;
+  }
+
+  .tag-keep {
+    background: rgba(16, 185, 129, 0.16);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  .tag-none {
+    background: rgba(100, 116, 139, 0.16);
+    color: #94a3b8;
+    border: 1px solid rgba(100, 116, 139, 0.3);
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+
+  /* SKILLS LIST */
+  .skill-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .skill-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+  }
+
+  .skill-row.keep {
+    border-left: 3px solid var(--accent-green);
+  }
+
+  .skill-row.replace {
+    border-left: 3px solid var(--accent-gold);
+    background: rgba(245, 158, 11, 0.06);
+  }
+
+  .skill-row.add {
+    border-left: 3px solid var(--accent-cyan);
+    background: rgba(6, 182, 212, 0.06);
+  }
+
+  .skill-old {
+    text-decoration: line-through;
+    color: #f87171;
+    margin-right: 5px;
+    font-size: 12px;
+  }
+
+  .skill-new {
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .skill-badge {
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .sb-keep { background: rgba(16, 185, 129, 0.18); color: #34d399; }
+  .sb-replace { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+  .sb-add { background: rgba(6, 182, 212, 0.2); color: #22d3ee; }
+
+  .tactical-tip {
+    font-size: 12px;
+    color: var(--text-secondary);
+    background: rgba(30, 41, 59, 0.45);
+    padding: 8px 10px;
+    border-radius: 8px;
+    margin-top: auto;
+  }
+
+  /* CHECKLIST SECTION */
+  .checklist-panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px;
+  }
+
+  .checklist-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .progress-bar {
+    width: 180px;
+    height: 8px;
+    background: var(--bg-main);
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #06b6d4, #10b981);
+    width: 0%;
+    transition: width 0.25s ease;
+  }
+
+  .reset-btn {
+    background: transparent;
+    border: 1px solid var(--border-bright);
+    color: var(--text-secondary);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .reset-btn:hover {
+    color: #fff;
+    border-color: var(--accent-red);
+  }
+
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 10px;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .check-item:hover {
+    border-color: var(--border-bright);
+  }
+
+  .check-item.done {
+    opacity: 0.55;
+    border-color: rgba(16, 185, 129, 0.35);
+  }
+
+  .check-item input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: var(--accent-green);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  .check-text {
+    font-size: 12.5px;
+    color: var(--text-primary);
+  }
+
+  .check-item.done .check-text {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-top">
+      <div>
+        <div class="brand-badge">eFootball 2026 Mobile • Endgame Blueprint</div>
+        <h1>Sơ Đồ Chiến Thuật & Tối Ưu Thẻ Cầu Thủ</h1>
+        <p class="hero-subtitle">Hệ thống Long Ball Counter (José Mourinho) • Chiến thuật Xoay Tua Phút 60+ & Kích Hoạt Shadow Link A</p>
+      </div>
+      <div class="strength-box">
+        <div class="strength-label">Collective Strength</div>
+        <div class="strength-value">3199</div>
+        <div class="strength-sub">16 Nhân sự Đá chính & Siêu dự bị</div>
+      </div>
+    </div>
+
+    <div class="manager-grid">
+      <div class="kpi-card">
+        <div class="kpi-title">Huấn Luyện Viên Trưởng</div>
+        <div class="kpi-main">José Mourinho (LBC 90)</div>
+        <div class="kpi-desc">Booster: <span class="pill-gold">Finishing +1</span> <span class="pill-gold">Aggression +1</span></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Link-Up Play (Hiệp 2 • 60'+)</div>
+        <div class="kpi-main"><span class="pill-cyan">Shadow Link A</span></div>
+        <div class="kpi-desc"><strong>Totti (Classic No. 10 • AMF)</strong> + <strong>Messi (DLF • RCF)</strong> tăng mạnh Passing & Ball Control khi bật tường 1-2.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Nhịp Độ Hiệp 1 (0' – 60')</div>
+        <div class="kpi-main">Càn Lướt & Bào Thể Lực</div>
+        <div class="kpi-desc">Vieira + Rijkaard khóa trung lộ; Hazard (Hole Player) + Eto'o + Batistuta + Rooney ép thể lực hàng thủ đối phương.</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-title">Nhịp Độ Hiệp 2 (Phút 60+)</div>
+        <div class="kpi-main">5 Quyền Thay Người Quyết Định</div>
+        <div class="kpi-desc">Tung Totti, Messi, Cruyff, Torres & Gerrard/Rice (100% thể lực) kết liễu hàng thủ đã xuống sức.</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- SECTION 1: PITCH & INDIVIDUAL INSTRUCTIONS -->
+  <div class="tactics-layout">
+    <div class="panel">
+      <h2 class="section-title"><span class="dot"></span>Sơ Đồ Vận Hành Hiệp 1 vs. Hiệp 2 (60'+)</h2>
+      <div class="tab-bar">
+        <button class="tab-btn active" id="btn-h1" onclick="switchHalf('h1')">Hiệp 1: Xuất Phát (0' – 60')</button>
+        <button class="tab-btn" id="btn-h2" onclick="switchHalf('h2')">Hiệp 2: Thay 5 Người (60'+)</button>
+      </div>
+
+      <div class="pitch" id="pitch-board">
+        <div class="pitch-box-top"></div>
+        <div class="pitch-center-line"></div>
+        <div class="pitch-center-circle"></div>
+        <div class="pitch-box-bottom"></div>
+        <div id="pitch-nodes"></div>
+      </div>
+      <div class="pitch-note" id="pitch-note"></div>
+    </div>
+
+    <div class="panel">
+      <h2 class="section-title"><span class="dot"></span>Individual Instructions (Bắt Buộc Đổi Ở Phút 60)</h2>
+      <table class="inst-table">
+        <thead>
+          <tr>
+            <th>Ô Lệnh</th>
+            <th>Hiệp 1 (0' – 60')</th>
+            <th>Hiệp 2 (Phút 60+)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="inst-slot">Attack 1</td>
+            <td>
+              <span class="inst-cmd cmd-on">Anchoring</span><br>
+              <strong>Samuel Eto'o (LCF 103)</strong><br>
+              <span style="font-size:11.5px;color:var(--text-secondary)">Bám trục dọc trung lộ chờ chọc khe.</span>
+            </td>
+            <td>
+              <span class="inst-cmd cmd-sub">Anchoring</span><br>
+              <strong>Fernando Torres (LCF 102)</strong><br>
+              <span style="font-size:11.5px;color:var(--text-secondary)">Giữ mũi nhọn Goal Poacher duy nhất cắm giữa 2 CB.</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="inst-slot">Attack 2</td>
+            <td>
+              <span class="inst-cmd cmd-on">Anchoring</span><br>
+              <strong>Gabriel Batistuta (RCF 104)</strong><br>
+              <span style="font-size:11.5px;color:var(--text-secondary)">Cố định khu vực dứt điểm trung lộ.</span>
+            </td>
+            <td>
+              <span class="inst-cmd cmd-off">OFF (Tắt hoàn toàn)</span><br>
+              <strong>Lionel Messi (RCF 105)</strong><br>
+              <span style="font-size:11.5px;color:var(--text-secondary)"><strong>Cấm gắn Anchoring</strong> để Messi tự do lùi sâu kích hoạt <em>Shadow Link A</em> với Totti.</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="inst-slot">Defense 1</td>
+            <td>
+              <span class="inst-cmd cmd-on">Counter Target</span><br>
+              <strong>Wayne Rooney (SS 107)</strong><br>
+              <span style="font-size:11.5px;color:var(--text-secondary)">Giữ thể lực, đứng sẵn làm trạm phản công.</span>
+            </td>
+            <td>
+              <span class="inst-cmd cmd-sub">Counter Target</span><br>
+              <strong>Fernando Torres (LCF 102)</strong><br>
+              <span style="font-size:11.5px;color:var(--text-secondary)">Giữ 100% thể lực đua tốc độ cuối trận; thả Cruyff (SS) tự do nối tuyến giữa.</span>
+            </td>
+          </tr>
+          <tr>
+            <td class="inst-slot">Defense 2</td>
+            <td>
+              <span class="inst-cmd cmd-off">OFF (None)</span><br>
+              <span style="font-size:11.5px;color:var(--text-secondary)">Vieira (RCMF) + Rijkaard (Anchor Man) tự khóa trung lộ.</span>
+            </td>
+            <td>
+              <span class="inst-cmd cmd-off">OFF</span> <em>(hoặc</em> <span class="inst-cmd cmd-sub">Defensive</span><em>)</em><br>
+              <span style="font-size:11.5px;color:var(--text-secondary)">Để <strong>OFF</strong> nếu tung Rice; bật <strong>Defensive</strong> cho <strong>Gerrard</strong> nếu đang dẫn bàn cần giữ tỷ số.</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 2: FILTER TOOLBAR -->
+  <h2 class="section-title"><span class="dot"></span>Chi Tiết Booster & Additional Skills Từng Cầu Thủ</h2>
+  <div class="toolbar">
+    <div class="filter-group" id="line-filters">
+      <button class="filter-btn active" data-filter="all">Tất cả (16)</button>
+      <button class="filter-btn" data-filter="gk-def">GK & Hậu vệ (5)</button>
+      <button class="filter-btn" data-filter="mid">Tiền vệ DMF/CMF (4)</button>
+      <button class="filter-btn" data-filter="amf-ss">AMF & SS (4)</button>
+      <button class="filter-btn" data-filter="cf">Tiền đạo CF (3)</button>
+      <button class="filter-btn" data-filter="action-needed">Cần ép/đổi Skill</button>
+    </div>
+    <input type="text" class="search-input" id="search-box" placeholder="Tìm tên cầu thủ hoặc skill (vd: Flip Flap)...">
+  </div>
+
+  <!-- SECTION 3: PLAYER CARDS -->
+  <div class="players-grid" id="players-container"></div>
+
+  <!-- SECTION 4: INTERACTIVE ACTION CHECKLIST -->
+  <div class="checklist-panel">
+    <div class="checklist-header">
+      <div>
+        <h2 class="section-title" style="margin-bottom:4px;"><span class="dot" style="background:var(--accent-green)"></span>Checklist Thao Tác Skill Training Trong Game</h2>
+        <p style="font-size:12.5px;color:var(--text-secondary);">Đánh dấu trực tiếp các kỹ năng đã ép/thay xong (tự động lưu trạng thái trên trình duyệt máy tính).</p>
+      </div>
+      <div class="progress-wrap">
+        <span id="progress-text" style="font-size:13px;font-weight:700;color:#fff;">0 / 0 hoàn thành</span>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <button class="reset-btn" onclick="resetChecklist()">Đặt lại</button>
+      </div>
+    </div>
+    <div class="checklist-grid" id="checklist-container"></div>
+  </div>
+
+</main>
+
+<script>
+const pitchData = {
+  h1: {
+    note: "<strong>Chiến thuật Hiệp 1:</strong> Cặp máy quét <strong>Vieira (Destroyer CMF) + Rijkaard (Anchor Man)</strong> bóp nghẹt tuyến giữa. <strong>Hazard (Hole Player)</strong> đâm nách trung vệ cánh trái, kết hợp <strong>Rooney</strong> châm ngòi cho 2 mũi nhọn <strong>Eto'o – Batistuta</strong> bào thể lực đối thủ.",
+    players: [
+      { pos: "GK", name: "O. Kahn (104)", style: "Defensive GK", x: 50, y: 90, type: "base" },
+      { pos: "LB", name: "P. Maldini (102)", style: "The Destroyer", x: 16, y: 74, type: "base" },
+      { pos: "LCB", name: "D. Huijsen (102)", style: "Build Up", x: 38, y: 77, type: "base" },
+      { pos: "RCB", name: "F. Cannavaro (106)", style: "The Destroyer", x: 62, y: 77, type: "base" },
+      { pos: "RB", name: "Costacurta (102)", style: "Defensive FB", x: 84, y: 74, type: "base" },
+      { pos: "DMF", name: "F. Rijkaard (102)", style: "Anchor Man", x: 50, y: 58, type: "base" },
+      { pos: "LAMF", name: "E. Hazard (109)", style: "Hole Player", x: 30, y: 40, type: "base" },
+      { pos: "RCMF", name: "P. Vieira (103)", style: "The Destroyer", x: 68, y: 44, type: "base" },
+      { pos: "SS", name: "W. Rooney (107)", style: "Counter Target", x: 50, y: 27, type: "base" },
+      { pos: "LCF", name: "S. Eto'o (103)", style: "Goal Poacher", x: 37, y: 12, type: "base" },
+      { pos: "RCF", name: "Batistuta (104)", style: "Goal Poacher", x: 63, y: 12, type: "base" }
+    ]
+  },
+  h2: {
+    note: "<strong>Chiến thuật Hiệp 2 (Phút 60+):</strong> 5 quyền thay người làm mới 100% hàng công & tuyến giữa. <strong>Totti (AMF) + Messi (RCF)</strong> kích hoạt <strong>Shadow Link A</strong> (viền tím), mở khoảng trống cho <strong>Cruyff (SS)</strong> và <strong>Torres (LCF)</strong> bứt tốc. Tuyến giữa dùng <strong>Gerrard</strong> (nếu hòa/thua) hoặc <strong>Rice</strong> (nếu dẫn bàn).",
+    players: [
+      { pos: "GK", name: "O. Kahn (104)", style: "Defensive GK", x: 50, y: 90, type: "base" },
+      { pos: "LB", name: "P. Maldini (102)", style: "The Destroyer", x: 16, y: 74, type: "base" },
+      { pos: "LCB", name: "D. Huijsen (102)", style: "Build Up", x: 38, y: 77, type: "base" },
+      { pos: "RCB", name: "F. Cannavaro (106)", style: "The Destroyer", x: 62, y: 77, type: "base" },
+      { pos: "RB", name: "Costacurta (102)", style: "Defensive FB", x: 84, y: 74, type: "base" },
+      { pos: "DMF", name: "F. Rijkaard (102)", style: "Anchor Man", x: 50, y: 58, type: "base" },
+      { pos: "LAMF", name: "F. Totti (102)", style: "Classic No.10 (Key)", x: 30, y: 40, type: "linkup" },
+      { pos: "RCMF", name: "Gerrard / Rice", style: "Box-to-Box (Sub)", x: 68, y: 44, type: "sub" },
+      { pos: "SS", name: "J. Cruyff (101)", style: "Hole Player (Sub)", x: 50, y: 27, type: "sub" },
+      { pos: "LCF", name: "F. Torres (102)", style: "Goal Poacher (Sub)", x: 37, y: 12, type: "sub" },
+      { pos: "RCF", name: "L. Messi (105)", style: "DLF (Centerpiece)", x: 63, y: 12, type: "linkup" }
+    ]
+  }
+};
+
+const playersDB = [
+  {
+    name: "Oliver Kahn",
+    ovr: 104,
+    pos: "GK",
+    group: "gk-def",
+    ovrClass: "ovr-gk",
+    playstyle: "Defensive GK • Unwavering",
+    phase: "Full 90'",
+    phaseClass: "phase-full",
+    needsAction: true,
+    stats: ["Reflexes 98", "Reach 98", "Awareness 97", "Catching 92", "Deflecting 91"],
+    boosters: [
+      { name: "Saving +2 (Built-in)", desc: "GK Awareness, Deflecting, Reflexes, Reach", status: "keep" },
+      { name: "Saving +1 (Crafted)", desc: "GK Awareness, Deflecting, Reflexes, Reach", status: "keep" }
+    ],
+    skills: [
+      { type: "keep", text: "GK Low Punt", note: "Bắt buộc phát bóng sệt LBC" },
+      { type: "keep", text: "Acrobatic Clearance", note: "Phá bóng giải nguy bằng chân" },
+      { type: "keep", text: "Weighted Pass", note: "Ném bóng chuẩn điểm rơi" },
+      { type: "replace", old: "No Look Pass", text: "One-touch Pass", note: "Thoát pressing một chạm (nếu dư vé)" },
+      { type: "add", text: "Low Lofted Pass (Ô 5)", note: "Phát bóng tầm thấp đi căng (nếu dư vé)" }
+    ],
+    tip: "Hạn chế chuyền ngắn mạo hiểm khi bị áp sát (Low Pass 54). Dùng GK Low Punt phát bóng thẳng cho Eto'o/Torres."
+  },
+  {
+    name: "Paolo Maldini",
+    ovr: 102,
+    pos: "LB",
+    group: "gk-def",
+    ovrClass: "ovr-def",
+    playstyle: "The Destroyer • Long Ball Expert",
+    phase: "Full 90'",
+    phaseClass: "phase-full",
+    needsAction: true,
+    stats: ["Tackling 97", "Def. Eng 97", "Def. Aware 96", "Aggression 94", "Speed 87", "Jump 85"],
+    boosters: [
+      { name: "Defending +2 (Built-in)", desc: "Def. Awareness, Tackling, Acceleration, Jumping", status: "keep" },
+      { name: "Booster 2: Không có", desc: "Thẻ Epic Single Booster", status: "none" }
+    ],
+    skills: [
+      { type: "keep", text: "Heading", note: "Kết hợp Aerial Superiority & Jump 85" },
+      { type: "replace", old: "Long-Range Curler", text: "One-touch Pass", note: "Bắt buộc thoát pressing (Ball Control 73)" },
+      { type: "replace", old: "Track Back", text: "Low Lofted Pass", note: "Tận dụng Long Ball Expert phất sệt" },
+      { type: "replace", old: "No Look Pass", text: "Through Passing", note: "Chọc khe dọc biên trái chuẩn xác" },
+      { type: "add", text: "Sole Control (Ô 5)", note: "Đỡ bước một dính chân (Tight Poss 76)" }
+    ],
+    tip: "The Destroyer kích hoạt ở LB nhưng Accel 78: ưu tiên giữ Match-up che góc chuyền, tránh bấm Pressure lao hụt."
+  },
+  {
+    name: "Dean Huijsen",
+    ovr: 102,
+    pos: "LCB",
+    group: "gk-def",
+    ovrClass: "ovr-def",
+    playstyle: "Build Up • Visionary Pass",
+    phase: "Full 90'",
+    phaseClass: "phase-full",
+    needsAction: true,
+    stats: ["Def. Aware 95", "Def. Eng 94", "Tackling 91", "Speed 90", "PC 88", "Low Pass 80"],
+    boosters: [
+      { name: "Rebuilding +3 (Built-in)", desc: "Low Pass, Def. Awareness, Aggression, Def. Eng", status: "keep" },
+      { name: "Shutdown +1 (Crafted)", desc: "Def. Awareness, Tackling, Def. Engagement, Speed", status: "keep" }
+    ],
+    skills: [
+      { type: "keep", text: "Sliding Tackle", note: "Bổ sung xoạc bóng trong vòng cấm" },
+      { type: "keep", text: "Acrobatic Clearance", note: "Giải nguy mọi tư thế" },
+      { type: "keep", text: "Sole Control", note: "Khống chế bước một dưới áp lực" },
+      { type: "add", text: "Low Lofted Pass (Ô 4)", note: "Kết hợp Visionary Pass phất bóng dài" },
+      { type: "add", text: "Outside Curler (Ô 5)", note: "Vẩy má ngoài phá/chuyền không cần xoay" }
+    ],
+    tip: "Chốt chặn bọc lót sau lưng Maldini & Cannavaro. Tận dụng Visionary Pass + Low Pass 80 phát động phản công trực diện."
+  },
+  {
+    name: "Fabio Cannavaro",
+    ovr: 106,
+    pos: "RCB",
+    group: "gk-def",
+    ovrClass: "ovr-def",
+    playstyle: "The Destroyer",
+    phase: "Full 90'",
+    phaseClass: "phase-full",
+    needsAction: true,
+    stats: ["Def. Aware 102", "Tackling 102", "Aggression 100", "Jump 99", "PC 94", "Balance 89"],
+    boosters: [
+      { name: "Dueling +2 (Built-in)", desc: "Def. Awareness, Tackling, Speed, Stamina", status: "keep" },
+      { name: "Shutdown +1 (Crafted)", desc: "Def. Awareness, Tackling, Def. Engagement, Speed", status: "keep" }
+    ],
+    skills: [
+      { type: "keep", text: "Weighted Pass", note: "Mở bóng lên tuyến trên có độ xoáy" },
+      { type: "keep", text: "Sole Control", note: "Bù đắp Tight Possession 66" },
+      { type: "keep", text: "Outside Curler", note: "Phá bóng má ngoài nhanh gọn" },
+      { type: "add", text: "One-touch Pass (Ô 4)", note: "Bắt buộc bù Ball Control 67 & Low Pass 70" },
+      { type: "add", text: "Low Lofted Pass (Ô 5)", note: "Phất bóng dài vượt tuyến phản công" }
+    ],
+    tip: "Cắt bóng sệt & bật nhảy (Jump 99) cực gắt. Luôn để Rijkaard & Costacurta bọc lót phía sau khi Cannavaro dâng áp sát."
+  },
+  {
+    name: "Alessandro Costacurta",
+    ovr: 102,
+    pos: "RB",
+    group: "gk-def",
+    ovrClass: "ovr-def",
+    playstyle: "Defensive Fullback",
+    phase: "Full 90'",
+    phaseClass: "phase-full",
+    needsAction: true,
+    stats: ["Def. Eng 99", "Stamina 98", "Lofted Pass 91", "Heading 90", "Speed 88", "PC 88"],
+    boosters: [
+      { name: "Dueling +2 (Built-in)", desc: "Def. Awareness, Tackling, Speed, Stamina", status: "keep" },
+      { name: "Booster 2: Không có", desc: "Thẻ Epic Single Booster", status: "none" }
+    ],
+    skills: [
+      { type: "keep", text: "Weighted Pass", note: "Chọc khe sệt phản công chuẩn xác" },
+      { type: "keep", text: "Sole Control", note: "Cải thiện bước một dưới áp lực" },
+      { type: "keep", text: "Low Lofted Pass", note: "Tận dụng Lofted Pass 91 phất bóng dài" },
+      { type: "replace", old: "Pinpoint Crossing", text: "One-touch Pass", note: "Ít tạt bóng; cần thoát pressing 1 chạm" },
+      { type: "add", text: "Aerial Superiority (Ô 5)", note: "Kết hợp Heading 90 chống bóng bổng cột 2" }
+    ],
+    tip: "Tự động bó vào trung lộ như trung vệ thứ 3, khóa chết hành lang phải suốt 90 phút với Stamina 98."
+  },
+  {
+    name: "Frank Rijkaard",
+    ovr: 102,
+    pos: "DMF",
+    group: "mid",
+    ovrClass: "ovr-mid",
+    playstyle: "Anchor Man • Visionary Pass",
+    phase: "Full 90'",
+    phaseClass: "phase-full",
+    needsAction: true,
+    stats: ["Kicking Power 95", "PC 92", "Def. Eng 90", "Tackling 89", "Speed 89", "Low Pass 85"],
+    boosters: [
+      { name: "Counter +3 (Built-in)", desc: "Low Pass, Tackling, Def. Engagement, Physical Contact", status: "keep" },
+      { name: "Physicality +1 (Crafted)", desc: "Jumping, Physical Contact, Balance, Stamina", status: "keep" }
+    ],
+    skills: [
+      { type: "keep", text: "Sliding Tackle", note: "Xoạc bóng cắt đường chuyền trước vòng cấm" },
+      { type: "keep", text: "Acrobatic Clearance", note: "Phá bóng giải nguy cận thành" },
+      { type: "keep", text: "Sole Control", note: "Khống chế bóng bước một chắc chắn" },
+      { type: "keep", text: "Heading", note: "Kết hợp Aerial Superiority làm chủ bóng bổng" },
+      { type: "replace", old: "Knuckle Shot", text: "Outside Curler", note: "Vẩy má ngoài chuyền/phá bóng không cần xoay" }
+    ],
+    tip: "Thắng kèo Vieira ở DMF đơn nhờ lối chơi Anchor Man giữ vị trí trước cặp CB. Kết hợp Visionary Pass chia bài cực bén."
+  },
+  {
+    name: "Patrick Vieira",
+    ovr: 103,
+    pos: "RCMF",
+    group: "mid",
+    ovrClass: "ovr-mid",
+    playstyle: "The Destroyer (Active at CMF)",
+    phase: "Đá chính H1 (0'-60')",
+    phaseClass: "phase-h1",
+    needsAction: false,
+    stats: ["Height 192cm", "Aggression +1 HLV", "Ball Control 82", "Dribbling 77"],
+    boosters: [
+      { name: "Epic Built-in Booster", desc: "Tăng mạnh chỉ số Phòng ngự & Thể chất", status: "keep" },
+      { name: "Booster 2: Không có", desc: "Thẻ Epic Single Booster", status: "none" }
+    ],
+    skills: [
+      { type: "keep", text: "One-touch Pass (Khuyên dùng)", note: "Chuyền một chạm thoát pressing nhanh" },
+      { type: "keep", text: "Through Passing (Khuyên dùng)", note: "Chọc khe phản công sau khi cướp bóng" },
+      { type: "keep", text: "Double Touch & Sole Control", note: "Xoay sở qua người ở khu vực trung tuyến" }
+    ],
+    tip: "The Destroyer kích hoạt ở CMF giúp Vieira săn bóng tầm cao cực gắt trong 60 phút đầu, phía sau luôn có Rijkaard bọc lót."
+  },
+  {
+    name: "Steven Gerrard",
+    ovr: 102,
+    pos: "RCMF",
+    group: "mid",
+    ovrClass: "ovr-mid",
+    playstyle: "Box-to-Box • Unwavering",
+    phase: "Dự bị H2 (Hòa/Thua)",
+    phaseClass: "phase-h2",
+    needsAction: true,
+    stats: ["Kicking Power 99", "Lofted Pass 97", "Low Pass 94", "Aggression 92", "Ball Control 90"],
+    boosters: [
+      { name: "Epic Built-in Booster", desc: "Tăng chỉ số Chuyền bóng & Sút xa", status: "keep" },
+      { name: "Booster 2: Không có", desc: "Thẻ Epic Single Booster", status: "none" }
+    ],
+    skills: [
+      { type: "add", text: "Super-sub (Ưu tiên số 1)", note: "Tăng chỉ số tấn công & sút xa sau phút 60" },
+      { type: "keep", text: "Double Touch & Sole Control", note: "Khắc phục Tight Possession 81 & Balance 70" },
+      { type: "keep", text: "Interception / Blocker", note: "Gia cố khả năng đánh chặn khi đá RCMF" }
+    ],
+    tip: "Tung vào phút 60+ khi đang hòa hoặc thua để phất bóng dài 97 cho Torres/Messi và tung các cú nã đại bác Kicking Power 99."
+  },
+  {
+    name: "Declan Rice",
+    ovr: 100,
+    pos: "RCMF",
+    group: "mid",
+    ovrClass: "ovr-mid",
+    playstyle: "Box-to-Box • Unwavering",
+    phase: "Dự bị H2 (Dẫn bàn)",
+    phaseClass: "phase-h2",
+    needsAction: false,
+    stats: ["Stamina 91", "Def. Eng 87", "Speed 87", "Lofted Pass 88", "PC 84", "Tackling 81"],
+    boosters: [
+      { name: "Không có Booster", desc: "Thẻ Highlight (OVR 100)", status: "none" }
+    ],
+    skills: [
+      { type: "keep", text: "Bộ Skill gốc & đã ép", note: "Sẵn sàng vào sân khóa tuyến giữa 30 phút cuối" }
+    ],
+    tip: "Tung vào phút 60+ thay Vieira khi đang dẫn bàn: Stamina 91 tươi mới cùng Def. Engagement 87 bịt kín mọi khe hở."
+  },
+  {
+    name: "Eden Hazard",
+    ovr: 109,
+    pos: "LAMF",
+    group: "amf-ss",
+    ovrClass: "ovr-att",
+    playstyle: "Hole Player • Momentum Dribbling",
+    phase: "Đá chính H1 (0'-60')",
+    phaseClass: "phase-h1",
+    needsAction: true,
+    stats: ["Dribbling 100", "Ball Control 99", "Tight Poss 99", "Accel 96", "Balance 96", "Low Pass 94"],
+    boosters: [
+      { name: "Technique +5 (Built-in)", desc: "Ball Control, Dribbling, Tight Possession, Low Pass", status: "keep" },
+      { name: "Striker's Instinct +1 (Crafted)", desc: "Off. Awareness, Ball Control, Finishing, Acceleration", status: "keep" }
+    ],
+    skills: [
+      { type: "keep", text: "Dipping Shot", note: "Sút xa cắm quỹ đạo với Kicking Power 97" },
+      { type: "keep", text: "Marseille Turn", note: "Xoay compa thoát người trung lộ" },
+      { type: "keep", text: "Acrobatic Finishing", note: "Dứt điểm một chạm khi băng cắt vòng cấm" },
+      { type: "keep", text: "Fighting Spirit", note: "Giữ thăng bằng khi bị tì đè" },
+      { type: "replace", old: "Pinpoint Crossing", text: "Flip Flap", note: "Mở khóa Special Double Touch (Ball Roll)" }
+    ],
+    tip: "Kết hợp Momentum Dribbling + Magnetic Feet + Special Double Touch tạo thành mũi khoan 1v1 không thể cản phá ở cánh trái H1."
+  },
+  {
+    name: "Francesco Totti (Italia 2000)",
+    ovr: 103,
+    pos: "LAMF",
+    group: "amf-ss",
+    ovrClass: "ovr-att",
+    playstyle: "Classic No. 10 (Key Man)",
+    phase: "Dự bị H2 (60'+)",
+    phaseClass: "phase-h2",
+    needsAction: true,
+    stats: ["Kicking Power 95", "Finishing 94", "Tight Poss 93", "Accel 90", "Balance 90", "Speed 88"],
+    boosters: [
+      { name: "Epic Italia 2000 Booster", desc: "Thắng kèo bản Roma nhờ Speed 88 & Low Pass 87", status: "keep" },
+      { name: "Booster 2: Không có", desc: "Thẻ Epic Single Booster", status: "none" }
+    ],
+    skills: [
+      { type: "keep", text: "Sole Control", note: "Đỡ bước một dính chân & mở Ball Roll" },
+      { type: "keep", text: "Double Touch", note: "Ngoặt bóng qua người trong không gian hẹp" },
+      { type: "keep", text: "Through Passing", note: "Chọc khe sắc bén cho Torres & Cruyff" },
+      { type: "replace", old: "Acrobatic Finishing", text: "Flip Flap", note: "Mở khóa Special Double Touch (Ball Roll)" },
+      { type: "add", text: "Fighting Spirit (Ô 5)", note: "Bắt buộc bù cho Stamina 87 cuối trận" }
+    ],
+    tip: "Đặt đúng ô AMF ở H2 để kết nối với Messi (RCF) kích hoạt Shadow Link A, nhận buff Passing & Ball Control cực đại."
+  },
+  {
+    name: "Wayne Rooney",
+    ovr: 107,
+    pos: "SS",
+    group: "amf-ss",
+    ovrClass: "ovr-att",
+    playstyle: "Hole Player / Creative",
+    phase: "Đá chính H1 (0'-60')",
+    phaseClass: "phase-h1",
+    needsAction: false,
+    stats: ["Counter Target H1", "Finishing +1 HLV", "Aggression +1 HLV"],
+    boosters: [
+      { name: "Built-in Double Booster", desc: "Tăng toàn diện Tấn công, Lực sút & Thể chất", status: "keep" }
+    ],
+    skills: [
+      { type: "keep", text: "One-touch Pass & Through Passing", note: "Trạm trung chuyển bóng sau lưng Eto'o – Batistuta" },
+      { type: "keep", text: "Long-Range Shooting & Outside Curler", note: "Dứt điểm tuyến hai uy lực" }
+    ],
+    tip: "Đứng giữa sân với lệnh Counter Target trong H1 để làm cầu nối phản công và bào thể lực hàng thủ đối phương."
+  },
+  {
+    name: "Johan Cruyff (73-74)",
+    ovr: 101,
+    pos: "SS",
+    group: "amf-ss",
+    ovrClass: "ovr-att",
+    playstyle: "Hole Player • Agility King",
+    phase: "Dự bị H2 (60'+)",
+    phaseClass: "phase-h2",
+    needsAction: true,
+    stats: ["Tight Poss 95", "Dribbling 93", "Ball Control 92", "Balance 92", "Curl 87", "Speed 86"],
+    boosters: [
+      { name: "Không có Booster", desc: "Thẻ Legendary (OVR 101)", status: "none" }
+    ],
+    skills: [
+      { type: "keep", text: "One-time Shot", note: "Dứt điểm một chạm trong vòng cấm" },
+      { type: "add", text: "Super-sub (Ô 2)", note: "Bắt buộc bù Finishing 84 & OA 87 sau phút 60" },
+      { type: "add", text: "Through Passing (Ô 3)", note: "Chọc khe xé nách trung vệ cho Torres" },
+      { type: "add", text: "Double Touch (Ô 4)", note: "Ngoặt bóng 1v1 mượt trên nền Balance 92" },
+      { type: "add", text: "Sole Control (Ô 5)", note: "Kết hợp Flip Flap gốc mở Special Double Touch" }
+    ],
+    tip: "Đâm thẳng vào khoảng trống trung lộ mỗi khi Messi và Totti lùi sâu kéo giãn hàng thủ đối phương ở Hiệp 2."
+  },
+  {
+    name: "Samuel Eto'o (103) & Batistuta (104)",
+    ovr: 104,
+    pos: "CF",
+    group: "cf",
+    ovrClass: "ovr-att",
+    playstyle: "Goal Poacher (Cặp bài trùng H1)",
+    phase: "Đá chính H1 (0'-60')",
+    phaseClass: "phase-h1",
+    needsAction: false,
+    stats: ["Finishing +1 HLV", "Aggression +1 HLV", "Anchoring H1"],
+    boosters: [
+      { name: "Built-in Double Boosters", desc: "Tối ưu Tốc độ (Eto'o) & Lực sút/Dứt điểm (Batistuta)", status: "keep" }
+    ],
+    skills: [
+      { type: "keep", text: "One-touch Pass & Through Passing", note: "Đập nhả nhanh giữa 2 tiền đạo cắm" },
+      { type: "keep", text: "Double Touch & Sole Control", note: "Tạo góc sút trong vòng cấm" }
+    ],
+    tip: "Cày ải hết tốc lực trong 60 phút đầu để quấy rối cặp trung vệ đối phương trước khi nhường chỗ cho Torres và Messi."
+  },
+  {
+    name: "Lionel Messi (King of Football)",
+    ovr: 105,
+    pos: "RCF",
+    group: "cf",
+    ovrClass: "ovr-att",
+    playstyle: "Deep-Lying Forward (Centerpiece)",
+    phase: "Dự bị H2 (60'+)",
+    phaseClass: "phase-h2",
+    needsAction: true,
+    stats: ["Tight Poss 103", "Dribbling 102", "Curl 99", "Accel 97", "Balance 96", "PC 93"],
+    boosters: [
+      { name: "King of Football +4 (Built-in)", desc: "Dribbling, Tight Possession, Physical Contact, Balance", status: "keep" },
+      { name: "Booster 2: Không có", desc: "Thẻ Big Time Special Booster", status: "none" }
+    ],
+    skills: [
+      { type: "keep", text: "Marseille Turn", note: "Xoay compa khi dùng PC 93 che bóng" },
+      { type: "keep", text: "Fighting Spirit", note: "Bắt buộc bù Stamina 80" },
+      { type: "keep", text: "Acrobatic Finishing", note: "Dứt điểm tư thế khó trong vòng cấm" },
+      { type: "replace", old: "Knuckle Shot", text: "Sole Control", note: "Đỡ bước một dính chân (Tight Poss 103)" },
+      { type: "add", text: "Outside Curler (Ô 5)", note: "Bắt buộc xóa nhược điểm chân phải Almost Never" }
+    ],
+    tip: "Đá RCF và TẮT Anchoring ở H2 để lùi sâu bật tường 1-2 với Totti, nhận buff tăng chỉ số Chuyền & Khống chế bóng."
+  },
+  {
+    name: "Fernando Torres",
+    ovr: 102,
+    pos: "LCF",
+    group: "cf",
+    ovrClass: "ovr-att",
+    playstyle: "Goal Poacher • Acceleration Burst",
+    phase: "Dự bị H2 (60'+)",
+    phaseClass: "phase-h2",
+    needsAction: true,
+    stats: ["Speed 94", "Accel 93", "OA 92", "Kicking Power 91", "Finishing 90", "Balance 84"],
+    boosters: [
+      { name: "Strength +3 (Built-in)", desc: "Speed, Kicking Power, Jumping, Physical Contact", status: "keep" },
+      { name: "Striker's Instinct +1 (Crafted)", desc: "Off. Awareness, Ball Control, Finishing, Acceleration", status: "keep" }
+    ],
+    skills: [
+      { type: "keep", text: "Rising Shot", note: "Kết hợp Kicking Power 91 sút bóng đi căng" },
+      { type: "keep", text: "One-touch Pass", note: "Bật tường 1 chạm cực mượt với Messi & Totti" },
+      { type: "keep", text: "Through Passing & Weighted Pass", note: "Chọc khe đáp trả cho Cruyff xâm nhập" },
+      { type: "replace", old: "Knuckle Shot", text: "Super-sub", note: "Bắt buộc tăng chỉ số khi vào sân phút 60+" }
+    ],
+    tip: "Thắng kèo Shevchenko 102 nhờ Speed 94 + Acceleration Burst + sẵn One-touch Pass. Gắn Counter Target + Anchoring ở H2."
+  }
+];
+
+const checklistItems = [
+  { id: "c1", text: "Totti (Italia 2000): Add Fighting Spirit vào Ô 5 & thay Acrobatic Finishing -> Flip Flap (mở Special Double Touch)" },
+  { id: "c2", text: "Messi (105): Add Outside Curler vào Ô 5 & thay Knuckle Shot -> Sole Control" },
+  { id: "c3", text: "Hazard (109): Thay Pinpoint Crossing -> Flip Flap (mở Special Double Touch)" },
+  { id: "c4", text: "Torres (102): Thay Knuckle Shot -> Super-sub để tối ưu hóa khi vào sân phút 60+" },
+  { id: "c5", text: "Cruyff (101): Add đủ 4 ô trống: Super-sub, Through Passing, Double Touch, Sole Control" },
+  { id: "c6", text: "Rijkaard (102): Thay Knuckle Shot -> Outside Curler (hoặc Long-Range Shooting)" },
+  { id: "c7", text: "Dean Huijsen (102): Add Low Lofted Pass (Ô 4) & Outside Curler (Ô 5)" },
+  { id: "c8", text: "Fabio Cannavaro (106): Add One-touch Pass (Ô 4) & Low Lofted Pass (Ô 5)" },
+  { id: "c9", text: "Costacurta (102): Add Aerial Superiority (Ô 5) & thay Pinpoint Crossing -> One-touch Pass" },
+  { id: "c10", text: "Paolo Maldini (102): Thay 3 ô (Long-Range Curler, Track Back, No Look Pass) -> One-touch Pass, Low Lofted Pass, Through Passing + Add Sole Control" },
+  { id: "c11", text: "Gerrard (102): Add Super-sub để làm vũ khí sút xa/chuyền dài phút 60+ khi hòa hoặc thua" },
+  { id: "c12", text: "In-Game Phút 60: TẮT Anchoring ở ô RCF của Messi và chuyển Counter Target sang Torres (LCF)" }
+];
+
+function switchHalf(half) {
+  document.getElementById("btn-h1").classList.toggle("active", half === "h1");
+  document.getElementById("btn-h2").classList.toggle("active", half === "h2");
+  const data = pitchData[half];
+  const container = document.getElementById("pitch-nodes");
+  container.innerHTML = data.players.map(p => {
+    const extraClass = p.type === "sub" ? "sub-active" : (p.type === "linkup" ? "linkup-active" : "");
+    return `
+      <div class="player-node ${extraClass}" style="left:${p.x}%; top:${p.y}%;">
+        <div class="node-pos">${p.pos}</div>
+        <div class="node-name">${p.name}</div>
+        <div class="node-style">${p.style}</div>
+      </div>
+    `;
+  }).join("");
+  document.getElementById("pitch-note").innerHTML = data.note;
+}
+
+let currentFilter = "all";
+let currentSearch = "";
+
+function renderPlayers() {
+  const container = document.getElementById("players-container");
+  const filtered = playersDB.filter(p => {
+    const matchFilter =
+      currentFilter === "all" ||
+      (currentFilter === "action-needed" && p.needsAction) ||
+      p.group === currentFilter;
+    const q = currentSearch.toLowerCase().trim();
+    if (!q) return matchFilter;
+    const blob = [
+      p.name, p.pos, p.playstyle, p.phase, p.tip,
+      ...p.stats,
+      ...p.boosters.map(b => b.name + " " + b.desc),
+      ...p.skills.map(s => (s.old || "") + " " + s.text + " " + s.note)
+    ].join(" ").toLowerCase();
+    return matchFilter && blob.includes(q);
+  });
+
+  container.innerHTML = filtered.map(p => `
+    <div class="player-card">
+      <div class="card-header">
+        <div class="player-title-wrap">
+          <div class="ovr-badge ${p.ovrClass}">
+            <span class="ovr-num">${p.ovr}</span>
+            <span class="ovr-pos">${p.pos}</span>
+          </div>
+          <div>
+            <div class="player-name">${p.name}</div>
+            <div class="player-meta">${p.playstyle}</div>
+          </div>
+        </div>
+        <span class="phase-tag ${p.phaseClass}">${p.phase}</span>
+      </div>
+
+      <div class="stats-strip">
+        ${p.stats.map(st => `<span class="stat-chip"><strong>${st}</strong></span>`).join("")}
+      </div>
+
+      <div>
+        <div class="block-label">Booster Slot (Giữ / Trạng thái)</div>
+        <div class="booster-list">
+          ${p.boosters.map(b => `
+            <div class="booster-item">
+              <div>
+                <div class="booster-name">${b.name}</div>
+                <div class="booster-stats">${b.desc}</div>
+              </div>
+              <span class="${b.status === 'keep' ? 'tag-keep' : 'tag-none'}">${b.status === 'keep' ? 'GIỮ NGUYÊN' : 'TRỐNG'}</span>
+            </div>
+          `).join("")}
+        </div>
+      </div>
+
+      <div>
+        <div class="block-label">Additional Skills (Giữ / Thay thế / Thêm mới)</div>
+        <div class="skill-rows">
+          ${p.skills.map(s => {
+            const label = s.type === "keep" ? "GIỮ" : (s.type === "replace" ? "THAY THẾ" : "THÊM MỚI");
+            const badgeCls = s.type === "keep" ? "sb-keep" : (s.type === "replace" ? "sb-replace" : "sb-add");
+            return `
+              <div class="skill-row ${s.type}">
+                <div>
+                  ${s.old ? `<span class="skill-old">${s.old}</span> → ` : ""}
+                  <span class="skill-new">${s.text}</span>
+                  <div style="font-size:11px;color:var(--text-secondary)">${s.note}</div>
+                </div>
+                <span class="skill-badge ${badgeCls}">${label}</span>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      </div>
+
+      <div class="tactical-tip">💡 ${p.tip}</div>
+    </div>
+  `).join("");
+}
+
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentFilter = btn.dataset.filter;
+    renderPlayers();
+  });
+});
+
+document.getElementById("search-box").addEventListener("input", e => {
+  currentSearch = e.target.value;
+  renderPlayers();
+});
+
+const STORAGE_KEY = "efootball2026_mourinho_checklist_v1";
+
+function loadChecklistState() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function saveChecklistState(state) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) {}
+}
+
+function renderChecklist() {
+  const state = loadChecklistState();
+  const container = document.getElementById("checklist-container");
+  container.innerHTML = checklistItems.map(item => {
+    const checked = !!state[item.id];
+    return `
+      <label class="check-item ${checked ? "done" : ""}">
+        <input type="checkbox" ${checked ? "checked" : ""} onchange="toggleCheck('${item.id}', this.checked)">
+        <span class="check-text">${item.text}</span>
+      </label>
+    `;
+  }).join("");
+
+  const doneCount = checklistItems.filter(i => state[i.id]).length;
+  const total = checklistItems.length;
+  document.getElementById("progress-text").textContent = `${doneCount} / ${total} hoàn thành`;
+  document.getElementById("progress-fill").style.width = `${Math.round((doneCount / total) * 100)}%`;
+}
+
+function toggleCheck(id, isChecked) {
+  const state = loadChecklistState();
+  state[id] = isChecked;
+  saveChecklistState(state);
+  renderChecklist();
+}
+
+function resetChecklist() {
+  saveChecklistState({});
+  renderChecklist();
+}
+
+switchHalf("h1");
+renderPlayers();
+renderChecklist();
+</script>
+</body>
+</html>
