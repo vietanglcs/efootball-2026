@@ -99,7 +99,7 @@
     border-radius: 14px;
     padding: 14px 22px;
     text-align: right;
-    min-width: 210px;
+    min-width: 220px;
   }
 
   .strength-label {
@@ -838,14 +838,14 @@
   <div class="container">
     <div class="hero-top">
       <div>
-        <div class="brand-badge">eFootball 2026 Mobile • Endgame Blueprint</div>
+        <div class="brand-badge">eFootball 2026 Mobile • Complete 17-Player Audit</div>
         <h1>Sơ Đồ Chiến Thuật & Tối Ưu Thẻ Cầu Thủ</h1>
-        <p class="hero-subtitle">Hệ thống Long Ball Counter (José Mourinho) • Chiến thuật Xoay Tua Phút 60+ & Kích Hoạt Shadow Link A</p>
+        <p class="hero-subtitle">Hệ thống Long Ball Counter (José Mourinho) • Xoay Tua Phút 60+ & Kích Hoạt Shadow Link A</p>
       </div>
       <div class="strength-box">
         <div class="strength-label">Collective Strength</div>
         <div class="strength-value">3199</div>
-        <div class="strength-sub">16 Nhân sự Đá chính & Siêu dự bị</div>
+        <div class="strength-sub">17 Nhân sự Cốt lõi (11 Chính + 6 Sub)</div>
       </div>
     </div>
 
@@ -962,17 +962,17 @@
   </div>
 
   <!-- SECTION 2: FILTER TOOLBAR -->
-  <h2 class="section-title"><span class="dot"></span>Chi Tiết Booster & Additional Skills Từng Cầu Thủ</h2>
+  <h2 class="section-title"><span class="dot"></span>Chi Tiết Booster & Additional Skills Toàn Bộ 17 Cầu Thủ</h2>
   <div class="toolbar">
     <div class="filter-group" id="line-filters">
-      <button class="filter-btn active" data-filter="all">Tất cả (16)</button>
+      <button class="filter-btn active" data-filter="all">Tất cả (17)</button>
       <button class="filter-btn" data-filter="gk-def">GK & Hậu vệ (5)</button>
       <button class="filter-btn" data-filter="mid">Tiền vệ DMF/CMF (4)</button>
       <button class="filter-btn" data-filter="amf-ss">AMF & SS (4)</button>
-      <button class="filter-btn" data-filter="cf">Tiền đạo CF (3)</button>
+      <button class="filter-btn" data-filter="cf">Tiền đạo CF (4)</button>
       <button class="filter-btn" data-filter="action-needed">Cần ép/đổi Skill</button>
     </div>
-    <input type="text" class="search-input" id="search-box" placeholder="Tìm tên cầu thủ hoặc skill (vd: Flip Flap)...">
+    <input type="text" class="search-input" id="search-box" placeholder="Tìm tên cầu thủ hoặc skill (vd: Super-sub)...">
   </div>
 
   <!-- SECTION 3: PLAYER CARDS -->
@@ -1009,9 +1009,9 @@ const pitchData = {
       { pos: "DMF", name: "F. Rijkaard (102)", style: "Anchor Man", x: 50, y: 58, type: "base" },
       { pos: "LAMF", name: "E. Hazard (109)", style: "Hole Player", x: 30, y: 40, type: "base" },
       { pos: "RCMF", name: "P. Vieira (103)", style: "The Destroyer", x: 68, y: 44, type: "base" },
-      { pos: "SS", name: "W. Rooney (107)", style: "Counter Target", x: 50, y: 27, type: "base" },
-      { pos: "LCF", name: "S. Eto'o (103)", style: "Goal Poacher", x: 37, y: 12, type: "base" },
-      { pos: "RCF", name: "Batistuta (104)", style: "Goal Poacher", x: 63, y: 12, type: "base" }
+      { pos: "SS", name: "W. Rooney (107)", style: "Hole Player", x: 50, y: 27, type: "base" },
+      { pos: "LCF", name: "S. Eto'o (103)", style: "Adv. Striker", x: 37, y: 12, type: "base" },
+      { pos: "RCF", name: "Batistuta (104)", style: "Adv. Striker", x: 63, y: 12, type: "base" }
     ]
   },
   h2: {
@@ -1023,7 +1023,7 @@ const pitchData = {
       { pos: "RCB", name: "F. Cannavaro (106)", style: "The Destroyer", x: 62, y: 77, type: "base" },
       { pos: "RB", name: "Costacurta (102)", style: "Defensive FB", x: 84, y: 74, type: "base" },
       { pos: "DMF", name: "F. Rijkaard (102)", style: "Anchor Man", x: 50, y: 58, type: "base" },
-      { pos: "LAMF", name: "F. Totti (102)", style: "Classic No.10 (Key)", x: 30, y: 40, type: "linkup" },
+      { pos: "LAMF", name: "F. Totti (103)", style: "Classic No.10 (Key)", x: 30, y: 40, type: "linkup" },
       { pos: "RCMF", name: "Gerrard / Rice", style: "Box-to-Box (Sub)", x: 68, y: 44, type: "sub" },
       { pos: "SS", name: "J. Cruyff (101)", style: "Hole Player (Sub)", x: 50, y: 27, type: "sub" },
       { pos: "LCF", name: "F. Torres (102)", style: "Goal Poacher (Sub)", x: 37, y: 12, type: "sub" },
@@ -1186,16 +1186,18 @@ const playersDB = [
     playstyle: "The Destroyer (Active at CMF)",
     phase: "Đá chính H1 (0'-60')",
     phaseClass: "phase-h1",
-    needsAction: false,
-    stats: ["Height 192cm", "Aggression +1 HLV", "Ball Control 82", "Dribbling 77"],
+    needsAction: true,
+    stats: ["Tackling 99", "Aggression 96", "Def. Eng 91", "PC 90", "Speed 87", "Low Pass 84"],
     boosters: [
-      { name: "Epic Built-in Booster", desc: "Tăng mạnh chỉ số Phòng ngự & Thể chất", status: "keep" },
+      { name: "Physicality +2 (Built-in)", desc: "Jumping, Physical Contact, Balance, Stamina", status: "keep" },
       { name: "Booster 2: Không có", desc: "Thẻ Epic Single Booster", status: "none" }
     ],
     skills: [
-      { type: "keep", text: "One-touch Pass (Khuyên dùng)", note: "Chuyền một chạm thoát pressing nhanh" },
-      { type: "keep", text: "Through Passing (Khuyên dùng)", note: "Chọc khe phản công sau khi cướp bóng" },
-      { type: "keep", text: "Double Touch & Sole Control", note: "Xoay sở qua người ở khu vực trung tuyến" }
+      { type: "replace", old: "Knuckle Shot", text: "One-touch Pass", note: "Bắt buộc thoát pressing một chạm (Finishing 66)" },
+      { type: "keep", text: "Blocker", note: "Lấp mảnh ghép thủ còn thiếu ở thẻ gốc" },
+      { type: "keep", text: "Acrobatic Clearance", note: "Phá bóng giải nguy khi lùi bọc lót" },
+      { type: "replace", old: "One-time Shot", text: "Through Passing", note: "Chọc khe phản công cho Eto'o & Batistuta" },
+      { type: "replace", old: "Gamesmanship", text: "Aerial Superiority", note: "Bù Jumping 75 tranh bóng bổng giữa sân" }
     ],
     tip: "The Destroyer kích hoạt ở CMF giúp Vieira săn bóng tầm cao cực gắt trong 60 phút đầu, phía sau luôn có Rijkaard bọc lót."
   },
@@ -1205,19 +1207,20 @@ const playersDB = [
     pos: "RCMF",
     group: "mid",
     ovrClass: "ovr-mid",
-    playstyle: "Box-to-Box • Unwavering",
+    playstyle: "Box-to-Box • Long Ball Expert",
     phase: "Dự bị H2 (Hòa/Thua)",
     phaseClass: "phase-h2",
     needsAction: true,
     stats: ["Kicking Power 99", "Lofted Pass 97", "Low Pass 94", "Aggression 92", "Ball Control 90"],
     boosters: [
-      { name: "Epic Built-in Booster", desc: "Tăng chỉ số Chuyền bóng & Sút xa", status: "keep" },
-      { name: "Booster 2: Không có", desc: "Thẻ Epic Single Booster", status: "none" }
+      { name: "Không có Booster", desc: "Thẻ Legendary (OVR 102)", status: "none" }
     ],
     skills: [
-      { type: "add", text: "Super-sub (Ưu tiên số 1)", note: "Tăng chỉ số tấn công & sút xa sau phút 60" },
-      { type: "keep", text: "Double Touch & Sole Control", note: "Khắc phục Tight Possession 81 & Balance 70" },
-      { type: "keep", text: "Interception / Blocker", note: "Gia cố khả năng đánh chặn khi đá RCMF" }
+      { type: "keep", text: "One-touch Pass", note: "Thoát pressing nhanh (bù Balance 70)" },
+      { type: "replace", old: "Heading", text: "Super-sub", note: "Bắt buộc buff chỉ số tấn công/sút xa từ phút 60+" },
+      { type: "keep", text: "Sole Control", note: "Khống chế bước một gọn trên nền Ball Control 90" },
+      { type: "replace", old: "Acrobatic Clearance", text: "Through Passing", note: "Chọc khe sệt xé hàng thủ cuối trận" },
+      { type: "replace", old: "Sliding Tackle", text: "Interception", note: "Tự động cắt chuyền an toàn (hoặc Double Touch)" }
     ],
     tip: "Tung vào phút 60+ khi đang hòa hoặc thua để phất bóng dài 97 cho Torres/Messi và tung các cú nã đại bác Kicking Power 99."
   },
@@ -1236,7 +1239,7 @@ const playersDB = [
       { name: "Không có Booster", desc: "Thẻ Highlight (OVR 100)", status: "none" }
     ],
     skills: [
-      { type: "keep", text: "Bộ Skill gốc & đã ép", note: "Sẵn sàng vào sân khóa tuyến giữa 30 phút cuối" }
+      { type: "keep", text: "Bộ Skill hiện có", note: "Sẵn sàng vào sân khóa tuyến giữa 30 phút cuối" }
     ],
     tip: "Tung vào phút 60+ thay Vieira khi đang dẫn bàn: Stamina 91 tươi mới cùng Def. Engagement 87 bịt kín mọi khe hở."
   },
@@ -1294,19 +1297,23 @@ const playersDB = [
     pos: "SS",
     group: "amf-ss",
     ovrClass: "ovr-att",
-    playstyle: "Hole Player / Creative",
+    playstyle: "Hole Player • Agility King / Long Ball Expert",
     phase: "Đá chính H1 (0'-60')",
     phaseClass: "phase-h1",
-    needsAction: false,
-    stats: ["Counter Target H1", "Finishing +1 HLV", "Aggression +1 HLV"],
+    needsAction: true,
+    stats: ["Ball Control 97", "OA 96", "Tight Poss 96", "Dribbling 95", "Accel 94", "Finishing 92", "Kicking Power 92"],
     boosters: [
-      { name: "Built-in Double Booster", desc: "Tăng toàn diện Tấn công, Lực sút & Thể chất", status: "keep" }
+      { name: "Striker's Instinct +3 (Built-in)", desc: "Off. Awareness, Ball Control, Finishing, Acceleration", status: "keep" },
+      { name: "Striker's Instinct +1 (Crafted)", desc: "Off. Awareness, Ball Control, Finishing, Acceleration", status: "keep" }
     ],
     skills: [
-      { type: "keep", text: "One-touch Pass & Through Passing", note: "Trạm trung chuyển bóng sau lưng Eto'o – Batistuta" },
-      { type: "keep", text: "Long-Range Shooting & Outside Curler", note: "Dứt điểm tuyến hai uy lực" }
+      { type: "keep", text: "Weighted Pass", note: "Cộng hưởng Phenomenal Pass & Long Ball Expert" },
+      { type: "keep", text: "Rising Shot", note: "Sút căng sệt tuyến hai (dư vé có thể đổi Outside Curler)" },
+      { type: "replace", old: "Knuckle Shot", text: "Through Passing", note: "Ưu tiên số 1: thẻ gốc đã có 4 skill sút; cần chọc khe sắc hơn" },
+      { type: "keep", text: "Marseille Turn", note: "Thoát pressing trung lộ (dư vé có thể đổi Sole Control)" },
+      { type: "keep", text: "Double Touch", note: "Qua người 1v1 mượt trên nền Dribbling 95 & Accel 94" }
     ],
-    tip: "Đứng giữa sân với lệnh Counter Target trong H1 để làm cầu nối phản công và bào thể lực hàng thủ đối phương."
+    tip: "Double Showtime (Phenomenal Finishing + Phenomenal Pass) + Hole Player: đứng giữa sân với Counter Target làm trạm trung chuyển phản công cho Eto'o & Batistuta."
   },
   {
     name: "Johan Cruyff (73-74)",
@@ -1332,24 +1339,52 @@ const playersDB = [
     tip: "Đâm thẳng vào khoảng trống trung lộ mỗi khi Messi và Totti lùi sâu kéo giãn hàng thủ đối phương ở Hiệp 2."
   },
   {
-    name: "Samuel Eto'o (103) & Batistuta (104)",
-    ovr: 104,
-    pos: "CF",
+    name: "Samuel Eto'o",
+    ovr: 103,
+    pos: "LCF",
     group: "cf",
     ovrClass: "ovr-att",
-    playstyle: "Goal Poacher (Cặp bài trùng H1)",
+    playstyle: "Adv. Striker • Speeding Bullet / Agility King",
+    phase: "Đá chính H1 (0'-60')",
+    phaseClass: "phase-h1",
+    needsAction: true,
+    stats: ["Speed 98", "Accel 97", "OA 94", "Balance 93", "Finishing 90", "Kicking Power 89", "Dribbling 87"],
+    boosters: [
+      { name: "Agility +4 (Built-in)", desc: "Speed, Acceleration, Balance, Stamina", status: "keep" },
+      { name: "Fantasista +1 (Crafted)", desc: "Ball Control, Dribbling, Finishing, Balance", status: "keep" }
+    ],
+    skills: [
+      { type: "keep", text: "Through Passing", note: "Bắt buộc bù Low Pass 68 để chọc khe trả ngược" },
+      { type: "keep", text: "Long-Range Shooting", note: "Kết hợp Kicking Power 89 & Rising Shot sút xa" },
+      { type: "replace", old: "Aerial Superiority", text: "Sole Control", note: "Heading 72 & Jump 78 thấp; đổi nếu dư vé để đỡ bước 1 mượt hơn" },
+      { type: "keep", text: "One-touch Pass", note: "Đập nhả 1 chạm tốc độ cao với Batistuta & Rooney" },
+      { type: "keep", text: "Fighting Spirit", note: "Giữ lực sút khi chạy liên tục 60' với Track Back" }
+    ],
+    tip: "Double Showtime (Acceleration Burst + Attacking Surge) kết hợp Track Back: bám biên trái với Anchoring, bứt tốc phá bẫy việt vị & bào thể lực đối thủ 60 phút đầu."
+  },
+  {
+    name: "Gabriel Batistuta",
+    ovr: 104,
+    pos: "RCF",
+    group: "cf",
+    ovrClass: "ovr-att",
+    playstyle: "Adv. Striker • Phenomenal Finishing",
     phase: "Đá chính H1 (0'-60')",
     phaseClass: "phase-h1",
     needsAction: false,
-    stats: ["Finishing +1 HLV", "Aggression +1 HLV", "Anchoring H1"],
+    stats: ["Kicking Power 96", "OA 95", "Finishing 94", "Speed 92", "Accel 92", "PC 88"],
     boosters: [
-      { name: "Built-in Double Boosters", desc: "Tối ưu Tốc độ (Eto'o) & Lực sút/Dứt điểm (Batistuta)", status: "keep" }
+      { name: "Striker's Instinct +2 (Built-in)", desc: "Off. Awareness, Ball Control, Finishing, Acceleration", status: "keep" },
+      { name: "Agility +1 (Crafted)", desc: "Speed, Acceleration, Balance, Stamina", status: "keep" }
     ],
     skills: [
-      { type: "keep", text: "One-touch Pass & Through Passing", note: "Đập nhả nhanh giữa 2 tiền đạo cắm" },
-      { type: "keep", text: "Double Touch & Sole Control", note: "Tạo góc sút trong vòng cấm" }
+      { type: "keep", text: "Heel Trick", note: "Đánh gót trả bóng tuyến hai cho Rooney/Eto'o" },
+      { type: "keep", text: "Outside Curler", note: "Vẩy má ngoài góc xa mượt ở vị trí RCF" },
+      { type: "keep", text: "One-touch Pass", note: "Bắt buộc đập nhả 1 chạm phản công" },
+      { type: "keep", text: "Through Passing", note: "Bù Low Pass 60 để chọc khe cho Eto'o" },
+      { type: "keep", text: "Sole Control", note: "Đỡ bước một dính chân trên nền Ball Control 81" }
     ],
-    tip: "Cày ải hết tốc lực trong 60 phút đầu để quấy rối cặp trung vệ đối phương trước khi nhường chỗ cho Torres và Messi."
+    tip: "Đã hoàn thiện 100% (5/5 skill chuẩn sách giáo khoa). Cày nát hàng thủ đối phương 60 phút đầu rồi nhường sân cho Messi."
   },
   {
     name: "Lionel Messi (King of Football)",
@@ -1406,13 +1441,16 @@ const checklistItems = [
   { id: "c3", text: "Hazard (109): Thay Pinpoint Crossing -> Flip Flap (mở Special Double Touch)" },
   { id: "c4", text: "Torres (102): Thay Knuckle Shot -> Super-sub để tối ưu hóa khi vào sân phút 60+" },
   { id: "c5", text: "Cruyff (101): Add đủ 4 ô trống: Super-sub, Through Passing, Double Touch, Sole Control" },
-  { id: "c6", text: "Rijkaard (102): Thay Knuckle Shot -> Outside Curler (hoặc Long-Range Shooting)" },
-  { id: "c7", text: "Dean Huijsen (102): Add Low Lofted Pass (Ô 4) & Outside Curler (Ô 5)" },
-  { id: "c8", text: "Fabio Cannavaro (106): Add One-touch Pass (Ô 4) & Low Lofted Pass (Ô 5)" },
-  { id: "c9", text: "Costacurta (102): Add Aerial Superiority (Ô 5) & thay Pinpoint Crossing -> One-touch Pass" },
-  { id: "c10", text: "Paolo Maldini (102): Thay 3 ô (Long-Range Curler, Track Back, No Look Pass) -> One-touch Pass, Low Lofted Pass, Through Passing + Add Sole Control" },
-  { id: "c11", text: "Gerrard (102): Add Super-sub để làm vũ khí sút xa/chuyền dài phút 60+ khi hòa hoặc thua" },
-  { id: "c12", text: "In-Game Phút 60: TẮT Anchoring ở ô RCF của Messi và chuyển Counter Target sang Torres (LCF)" }
+  { id: "c14", text: "Wayne Rooney (107): Giữ Weighted Pass, Rising Shot, Marseille Turn, Double Touch; thay Knuckle Shot -> Through Passing" },
+  { id: "c15", text: "Samuel Eto'o (103): Giữ Through Passing, Long-Range Shooting, One-touch Pass, Fighting Spirit; dư vé thì đổi Aerial Superiority -> Sole Control" },
+  { id: "c6", text: "Patrick Vieira (103): Giữ Blocker, Acrobatic Clearance; thay Knuckle Shot -> One-touch Pass, One-time Shot -> Through Passing, Gamesmanship -> Aerial Superiority" },
+  { id: "c7", text: "Steven Gerrard (102): Giữ One-touch Pass, Sole Control; thay Heading -> Super-sub, Acrobatic Clearance -> Through Passing, Sliding Tackle -> Interception" },
+  { id: "c8", text: "Rijkaard (102): Thay Knuckle Shot -> Outside Curler (hoặc Long-Range Shooting)" },
+  { id: "c9", text: "Dean Huijsen (102): Add Low Lofted Pass (Ô 4) & Outside Curler (Ô 5)" },
+  { id: "c10", text: "Fabio Cannavaro (106): Add One-touch Pass (Ô 4) & Low Lofted Pass (Ô 5)" },
+  { id: "c11", text: "Costacurta (102): Add Aerial Superiority (Ô 5) & thay Pinpoint Crossing -> One-touch Pass" },
+  { id: "c12", text: "Paolo Maldini (102): Thay 3 ô (Long-Range Curler, Track Back, No Look Pass) -> One-touch Pass, Low Lofted Pass, Through Passing + Add Sole Control" },
+  { id: "c13", text: "In-Game Phút 60: TẮT Anchoring ở ô RCF của Messi và chuyển Counter Target sang Torres (LCF)" }
 ];
 
 function switchHalf(half) {
@@ -1528,7 +1566,7 @@ document.getElementById("search-box").addEventListener("input", e => {
   renderPlayers();
 });
 
-const STORAGE_KEY = "efootball2026_mourinho_checklist_v1";
+const STORAGE_KEY = "efootball2026_mourinho_checklist_v2";
 
 function loadChecklistState() {
   try {
