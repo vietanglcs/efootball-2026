@@ -435,7 +435,13 @@
     border: 1px solid var(--border);
     border-radius: 14px;
     padding: 16px;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .toolbar-top {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
@@ -486,6 +492,115 @@
 
   .search-input:focus {
     border-color: var(--accent-cyan);
+  }
+
+  /* SKILL TOKEN FILTER BAR */
+  .skill-filter-section {
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+
+  .skill-filter-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .skill-filter-label {
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-gold);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .skill-pill {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid var(--border-bright);
+    color: var(--text-secondary);
+    padding: 5px 11px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .skill-pill:hover {
+    border-color: var(--accent-gold);
+    color: #fff;
+  }
+
+  .skill-pill.active {
+    background: linear-gradient(135deg, #d97706, #f59e0b);
+    border-color: #fbbf24;
+    color: #090d16;
+    font-weight: 800;
+    box-shadow: 0 2px 10px rgba(245, 158, 11, 0.35);
+  }
+
+  .skill-pill .count-badge {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 1px 6px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 800;
+  }
+
+  .skill-pill.active .count-badge {
+    background: rgba(9, 13, 22, 0.22);
+    color: #090d16;
+  }
+
+  /* ACTIVE SKILL BANNER */
+  .active-filter-banner {
+    display: none;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 18px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+    color: #fde68a;
+  }
+
+  .active-filter-banner.visible {
+    display: flex;
+  }
+
+  .clear-skill-btn {
+    background: rgba(245, 158, 11, 0.22);
+    border: 1px solid rgba(245, 158, 11, 0.5);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .clear-skill-btn:hover {
+    background: #f59e0b;
+    color: #090d16;
   }
 
   /* PLAYER CARDS GRID */
@@ -698,6 +813,13 @@
     background: rgba(6, 182, 212, 0.06);
   }
 
+  .skill-row.skill-highlight {
+    border: 1.5px solid #fbbf24;
+    border-left: 4px solid #fbbf24;
+    background: rgba(245, 158, 11, 0.16);
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
+  }
+
   .skill-old {
     text-decoration: line-through;
     color: #f87171;
@@ -730,6 +852,16 @@
     padding: 8px 10px;
     border-radius: 8px;
     margin-top: auto;
+  }
+
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 36px 20px;
+    background: var(--bg-card);
+    border: 1px dashed var(--border-bright);
+    border-radius: 14px;
+    color: var(--text-secondary);
   }
 
   /* CHECKLIST SECTION */
@@ -964,15 +1096,30 @@
   <!-- SECTION 2: FILTER TOOLBAR -->
   <h2 class="section-title"><span class="dot"></span>Chi Tiết Booster & Additional Skills Toàn Bộ 17 Cầu Thủ</h2>
   <div class="toolbar">
-    <div class="filter-group" id="line-filters">
-      <button class="filter-btn active" data-filter="all">Tất cả (17)</button>
-      <button class="filter-btn" data-filter="gk-def">GK & Hậu vệ (5)</button>
-      <button class="filter-btn" data-filter="mid">Tiền vệ DMF/CMF (4)</button>
-      <button class="filter-btn" data-filter="amf-ss">AMF & SS (4)</button>
-      <button class="filter-btn" data-filter="cf">Tiền đạo CF (4)</button>
-      <button class="filter-btn" data-filter="action-needed">Cần ép/đổi Skill</button>
+    <div class="toolbar-top">
+      <div class="filter-group" id="line-filters">
+        <button class="filter-btn active" data-filter="all">Tất cả (17)</button>
+        <button class="filter-btn" data-filter="gk-def">GK & Hậu vệ (5)</button>
+        <button class="filter-btn" data-filter="mid">Tiền vệ DMF/CMF (4)</button>
+        <button class="filter-btn" data-filter="amf-ss">AMF & SS (4)</button>
+        <button class="filter-btn" data-filter="cf">Tiền đạo CF (4)</button>
+        <button class="filter-btn" data-filter="action-needed">Cần ép/đổi Skill</button>
+      </div>
+      <input type="text" class="search-input" id="search-box" placeholder="Tìm tên cầu thủ hoặc skill...">
     </div>
-    <input type="text" class="search-input" id="search-box" placeholder="Tìm tên cầu thủ hoặc skill (vd: Super-sub)...">
+
+    <div class="skill-filter-section">
+      <div class="skill-filter-header">
+        <span class="skill-filter-label">🎯 Tra cứu theo Thẻ Skill đang có (Lọc cầu thủ cần ép / thay thế):</span>
+      </div>
+      <div class="skill-pills" id="skill-pills-container"></div>
+    </div>
+  </div>
+
+  <!-- ACTIVE SKILL FILTER BANNER -->
+  <div class="active-filter-banner" id="active-skill-banner">
+    <span id="active-skill-text"></span>
+    <button class="clear-skill-btn" onclick="clearSkillFilter()">✕ Bỏ lọc thẻ skill</button>
   </div>
 
   <!-- SECTION 3: PLAYER CARDS -->
@@ -1453,6 +1600,78 @@ const checklistItems = [
   { id: "c13", text: "In-Game Phút 60: TẮT Anchoring ở ô RCF của Messi và chuyển Counter Target sang Torres (LCF)" }
 ];
 
+function normalizeSkillName(raw) {
+  return raw.replace(/\s*\(.*?\)\s*/g, "").trim();
+}
+
+function getNeededSkillsSummary() {
+  const counts = {};
+  playersDB.forEach(p => {
+    const seenForPlayer = new Set();
+    p.skills.forEach(s => {
+      if (s.type === "replace" || s.type === "add") {
+        const clean = normalizeSkillName(s.text);
+        if (!seenForPlayer.has(clean)) {
+          seenForPlayer.add(clean);
+          counts[clean] = (counts[clean] || 0) + 1;
+        }
+      }
+    });
+  });
+  return Object.entries(counts)
+    .map(([name, count]) => ({ name, count }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+}
+
+let currentFilter = "all";
+let currentSearch = "";
+let currentSkillFilter = "";
+
+function renderSkillPills() {
+  const summary = getNeededSkillsSummary();
+  const container = document.getElementById("skill-pills-container");
+  const allBtn = `
+    <button class="skill-pill ${currentSkillFilter === "" ? "active" : ""}" onclick="selectSkillFilter('')">
+      Tất cả thẻ skill
+    </button>
+  `;
+  const pillsHtml = summary.map(item => `
+    <button class="skill-pill ${currentSkillFilter === item.name ? "active" : ""}" onclick="selectSkillFilter('${item.name.replace(/'/g, "\'")}')">
+      <span>${item.name}</span>
+      <span class="count-badge">${item.count}</span>
+    </button>
+  `).join("");
+  container.innerHTML = allBtn + pillsHtml;
+}
+
+function selectSkillFilter(skillName) {
+  if (currentSkillFilter === skillName) {
+    currentSkillFilter = "";
+  } else {
+    currentSkillFilter = skillName;
+  }
+  renderSkillPills();
+  renderPlayers();
+}
+
+function clearSkillFilter() {
+  currentSkillFilter = "";
+  renderSkillPills();
+  renderPlayers();
+}
+
+function resetAllFilters() {
+  currentFilter = "all";
+  currentSearch = "";
+  currentSkillFilter = "";
+  document.getElementById("search-box").value = "";
+  document.querySelectorAll(".filter-btn").forEach(b => {
+    b.classList.toggle("active", b.dataset.filter === "all");
+  });
+  renderSkillPills();
+  renderPlayers();
+}
+
 function switchHalf(half) {
   document.getElementById("btn-h1").classList.toggle("active", half === "h1");
   document.getElementById("btn-h2").classList.toggle("active", half === "h2");
@@ -1471,9 +1690,6 @@ function switchHalf(half) {
   document.getElementById("pitch-note").innerHTML = data.note;
 }
 
-let currentFilter = "all";
-let currentSearch = "";
-
 function renderPlayers() {
   const container = document.getElementById("players-container");
   const filtered = playersDB.filter(p => {
@@ -1481,16 +1697,42 @@ function renderPlayers() {
       currentFilter === "all" ||
       (currentFilter === "action-needed" && p.needsAction) ||
       p.group === currentFilter;
+
+    const matchSkill =
+      !currentSkillFilter ||
+      p.skills.some(s => (s.type === "replace" || s.type === "add") && normalizeSkillName(s.text) === currentSkillFilter);
+
     const q = currentSearch.toLowerCase().trim();
-    if (!q) return matchFilter;
+    if (!q) return matchFilter && matchSkill;
+
     const blob = [
       p.name, p.pos, p.playstyle, p.phase, p.tip,
       ...p.stats,
       ...p.boosters.map(b => b.name + " " + b.desc),
       ...p.skills.map(s => (s.old || "") + " " + s.text + " " + s.note)
     ].join(" ").toLowerCase();
-    return matchFilter && blob.includes(q);
+    return matchFilter && matchSkill && blob.includes(q);
   });
+
+  const banner = document.getElementById("active-skill-banner");
+  const bannerText = document.getElementById("active-skill-text");
+  if (currentSkillFilter) {
+    banner.classList.add("visible");
+    bannerText.innerHTML = `🎯 Đang tra cứu thẻ skill <strong>${currentSkillFilter}</strong> — Có <strong>${filtered.length} cầu thủ</strong> đang hiển thị cần ép hoặc thay thế kỹ năng này.`;
+  } else {
+    banner.classList.remove("visible");
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <p style="font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;">Không tìm thấy cầu thủ khớp với bộ lọc hiện tại</p>
+        <p style="font-size:13px;margin-bottom:14px;">Thử chuyển tuyến cầu thủ về "Tất cả (17)" hoặc xóa từ khóa tìm kiếm.</p>
+        <button class="clear-skill-btn" onclick="resetAllFilters()">Đặt lại toàn bộ bộ lọc</button>
+      </div>
+    `;
+    return;
+  }
 
   container.innerHTML = filtered.map(p => `
     <div class="player-card">
@@ -1531,10 +1773,11 @@ function renderPlayers() {
         <div class="block-label">Additional Skills (Giữ / Thay thế / Thêm mới)</div>
         <div class="skill-rows">
           ${p.skills.map(s => {
-            const label = s.type === "keep" ? "GIỮ" : (s.type === "replace" ? "THAY THẾ" : "THÊM MỚI");
+            const isHighlighted = currentSkillFilter && (s.type === "replace" || s.type === "add") && normalizeSkillName(s.text) === currentSkillFilter;
+            const label = isHighlighted ? "DÙNG THẺ NÀY" : (s.type === "keep" ? "GIỮ" : (s.type === "replace" ? "THAY THẾ" : "THÊM MỚI"));
             const badgeCls = s.type === "keep" ? "sb-keep" : (s.type === "replace" ? "sb-replace" : "sb-add");
             return `
-              <div class="skill-row ${s.type}">
+              <div class="skill-row ${s.type} ${isHighlighted ? "skill-highlight" : ""}">
                 <div>
                   ${s.old ? `<span class="skill-old">${s.old}</span> → ` : ""}
                   <span class="skill-new">${s.text}</span>
@@ -1614,6 +1857,7 @@ function resetChecklist() {
 }
 
 switchHalf("h1");
+renderSkillPills();
 renderPlayers();
 renderChecklist();
 </script>
